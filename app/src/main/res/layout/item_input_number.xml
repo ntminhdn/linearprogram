@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <EditText
+        android:selectAllOnFocus="true"
+        android:minHeight="50dp"
+        android:id="@+id/et_input_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="numberSigned|numberDecimal"
+        android:minWidth="30dp"
+        android:text="0" />
+
+    <TextView
+        android:minHeight="50dp"
+        android:id="@+id/tv_variable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minWidth="30dp" />
+</LinearLayout>

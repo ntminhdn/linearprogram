@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Linear Program</string>
+    <string name="num_var">Nhập số biến: <font color="red">*</font></string>
+</resources>
