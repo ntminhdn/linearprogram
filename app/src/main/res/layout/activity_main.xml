@@ -16,12 +16,26 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/btnSolve"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
-        android:text="SOLVE"
-        android:textColor="@android:color/white" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSolve"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="SOLVE"
+            android:textColor="@android:color/white" />
+
+        <CheckBox
+            android:id="@+id/cbAll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="xj >= 0 (&#8704;j)" />
+    </LinearLayout>
+
 </LinearLayout>

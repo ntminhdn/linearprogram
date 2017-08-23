@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 
 import org.apache.commons.math3.optimization.GoalType;
 import org.apache.commons.math3.optimization.PointValuePair;
@@ -87,18 +88,14 @@ public class MainActivity extends AppCompatActivity implements NumberVarDialog.O
 
         Log.d("hihi", "goalType " + goalType.toString());
 
-        ArrayList<Double> inputFuncList = new ArrayList<>();
+//        ArrayList<Double> inputFuncList = new ArrayList<>();
+        double[] inputFunc = new double[funcInput.size() / 2];
         for (int i = 0; i < funcInput.size() - 1; i++) {
             if ((2 * i) + 1 >= funcInput.size()) {
                 break;
             }
 
-            inputFuncList.add((double) funcInput.get((2 * i) + 1).object);
-        }
-
-        double[] inputFunc = new double[inputFuncList.size()];
-        for (int i = 0; i < inputFuncList.size(); i++) {
-            inputFunc[i] = inputFuncList.get(i);
+            inputFunc[i] = ((double) funcInput.get((2 * i) + 1).object);
             Log.d("hihi", "inputFunc " + inputFunc[i]);
         }
 
@@ -127,7 +124,8 @@ public class MainActivity extends AppCompatActivity implements NumberVarDialog.O
         }
 
         LinearObjectiveFunction f = new LinearObjectiveFunction(inputFunc, 0);
-        return new SimplexSolver().optimize(f, constraints, goalType, true);
+        Log.d("hihi", "boolean " + ((CheckBox) findViewById(R.id.cbAll)).isChecked());
+        return new SimplexSolver().optimize(f, constraints, goalType, ((CheckBox) findViewById(R.id.cbAll)).isChecked());
     }
 
     public List<ItemObject> addBlankData(int num) {

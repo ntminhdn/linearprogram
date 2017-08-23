@@ -28,9 +28,10 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == FUNC) {
             return new FuncVH(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false));
-        } else {
+        } else if (viewType == CONSTRAINT) {
             return new ListVH(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false));
         }
+        return null;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof FuncVH) {
             FuncVH cellViewHolder = (FuncVH) holder;
-
+            cellViewHolder.rvItem.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext(), LinearLayoutManager.HORIZONTAL, false));
             FuncAdapter adapter = new FuncAdapter(list.get(position));
             cellViewHolder.rvItem.setAdapter(adapter);
 
@@ -56,7 +57,7 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             }
         } else if (holder instanceof ListVH) {
             ListVH cellViewHolder = (ListVH) holder;
-
+            cellViewHolder.rvItem.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext(), LinearLayoutManager.HORIZONTAL, false));
             ItemListAdapter adapter = new ItemListAdapter(list.get(position));
             cellViewHolder.rvItem.setAdapter(adapter);
 
@@ -78,7 +79,6 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public ListVH(View itemView) {
             super(itemView);
             rvItem = itemView.findViewById(R.id.rv_item);
-            rvItem.setLayoutManager(new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false));
         }
     }
 
@@ -88,7 +88,6 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public FuncVH(View itemView) {
             super(itemView);
             rvItem = itemView.findViewById(R.id.rv_item);
-            rvItem.setLayoutManager(new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false));
         }
     }
 

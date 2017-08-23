@@ -5,11 +5,10 @@
     android:orientation="vertical">
 
     <EditText
-        android:inputType="numberSigned|numberDecimal"
-        android:gravity="center"
-        android:selectAllOnFocus="true"
         android:id="@+id/et_const"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="30dp" />
+        android:gravity="center"
+        android:minWidth="30dp"
+        android:selectAllOnFocus="true" />
 </LinearLayout>
